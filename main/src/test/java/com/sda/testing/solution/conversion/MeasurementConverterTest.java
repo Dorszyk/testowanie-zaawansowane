@@ -12,4 +12,14 @@ class MeasurementConverterTest {
 
     }
 
+    @ParameterizedTest
+    @EnumSource(names = {"METERS_TO_YARDS","INCHES_TO_CENTIMETERS","MILES_TO_KILOMETERS"})
+    public void shuldConverterToHigherValue(ConversionType conversionType){
+        int i = 100;
+        double converted = new MeasurementConverter().convert(i,conversionType);
+
+        assertTrue(converted > i);
+
+    }
+
 }
